@@ -1,5 +1,7 @@
 # Cardiometabolic Risk & Hospital Stay Stratifier (CRSS)
 
+**Live dashboard:** [Open the interactive planner](https://cardiometabolic-los-engine-2j65k5attv9hmqj22xofdw.streamlit.app/)
+
 > **Please read first:** This is a **portfolio and learning project**, not a validated clinical tool and not medical advice. The length-of-stay (LOS) values are **illustrative planning assumptions**, not published effect sizes. The relationship between BMI and outcomes after cardiac procedures is complex and varies between studies, so replace these numbers with your own hospital's LOS data before using the logic for any real planning.
 
 ## What it does
@@ -32,6 +34,19 @@ LOS uplift: +3.3 days (includes +1.0 day for cardiac history)
 
 Scenario: 8 example patients
 extra_bed_days: 14.3  |  extra_bed_days_per_patient: 1.79
+```
+
+## Interactive dashboard
+`app.py` is a Streamlit dashboard built on the same engine. It has four tabs:
+- **Patient calculator:** enter weight, height, and cardiac history to see the BMI category, priority, assumed extra stay, and suggested pathway.
+- **Scenario planner:** enter monthly admissions and a BMI mix to estimate extra bed days and the average number of extra beds occupied.
+- **Upload a cohort:** upload a CSV with `bmi` and `cardiac_history` columns (anonymised or simulated data only).
+- **Tiers and method:** the category table and how it works.
+
+The length-of-stay assumptions can be edited in the sidebar to test "what if" scenarios. Run it locally with:
+```bash
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
 ## How to run
